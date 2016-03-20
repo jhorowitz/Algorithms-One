@@ -1,7 +1,5 @@
 package unionFind
 
-import "fmt"
-
 type weightedQAWithPCompNode struct {
 	weight int
 	parent int
@@ -27,7 +25,6 @@ func (w *WeightedQAWithPComp) Root(a int) int {
 		w.ids[a].parent = w.ids[w.ids[a].parent].parent
 		a = parent
 	}
-	defer fmt.Println(w.ids)
 	return a
 }
 
