@@ -7,6 +7,9 @@ package unionFind
  Unions are done by setting the root of one tree to the
  root of the other. Find is done by checking if both
  ids have the same root.
+
+ An issue is that the trees can get too tall which would
+ lead to find being too expensive (N array accesses).
 */
 
 func NewQuickUnion(size int) *QuickUnion {
