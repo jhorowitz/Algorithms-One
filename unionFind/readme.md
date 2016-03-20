@@ -23,6 +23,8 @@ Connected components: Maximal set of objects that are mutually connected
 
  Algorithm Complexities
  <pre>
+ 
+ 
   ----------------------------------------------------------------------------------------
   |                  Algorithm                  | Init |      Union     |      Find      |
   |--------------------------------------------------------------------------------------|
@@ -34,6 +36,8 @@ Connected components: Maximal set of objects that are mutually connected
   |--------------------------------------------------------------------------------------|
   |  Weighted Quick Union With Path Compression |   N  |   log(log(n))  |   log(log(n))  |
   ----------------------------------------------------------------------------------------
+  
+  
 </pre>
 
   *N -> Worst and unusual case.
