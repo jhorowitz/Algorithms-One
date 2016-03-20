@@ -23,8 +23,13 @@ We assume "is connected to" is an equivalence relation.
 
 Connected components: Maximal set of objects that are mutually connected
 
- */
+*/
 
+/*
+ Algorithm Complexity
+  Algorithm | Initialize | Union | Find |
+  QuickFind |      N     |   N   |  N   |
+*/
 
 /*
 "Eager algorithm" for solving the connectivity program.
@@ -37,7 +42,7 @@ Connected components: Maximal set of objects that are mutually connected
 
  In the above example, 0, 5, 6 are connected. 1, 2, 7 are connected. 3, 4, 8, 9 are connected.
 
- */
+*/
 
 func NewQuickFind(size int) *QuickFind {
 	q := &QuickFind{}
@@ -48,14 +53,23 @@ func NewQuickFind(size int) *QuickFind {
 	return q
 }
 
+/*
+ QuickFind is highly efficient for find and highly inefficient for union.
+
+ Complexity:
+ Initialize: N
+ Union: N
+ Find: 1
+
+*/
 type QuickFind struct {
 	ids []int
 }
 
 /*
  To merge components, change all ids that == ids[j] to ids[i]
- */
-func (qf *QuickFind) Union (a, b int) {
+*/
+func (qf *QuickFind) Union(a, b int) {
 	var previousId = qf.ids[b]
 	for i, id := range qf.ids {
 		if id == previousId {
@@ -64,7 +78,6 @@ func (qf *QuickFind) Union (a, b int) {
 	}
 }
 
-func (qf *QuickFind) Find (i, j int) bool {
+func (qf *QuickFind) Find(i, j int) bool {
 	return qf.ids[i] == qf.ids[j]
 }
-
