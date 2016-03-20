@@ -17,6 +17,14 @@ func TestQuickUnion(t *testing.T) {
 	UnionFindImplementationTest(NewQuickUnion(size), t)
 }
 
+func TestWeightedQuickUnion(t *testing.T) {
+	UnionFindImplementationTest(NewWeightedQuickUnion(size), t)
+}
+
+func TestWeightedQAWithPComp(t *testing.T) {
+	UnionFindImplementationTest(NewWeightedQAWithPComp(size), t)
+}
+
 func UnionFindImplementationTest(q unionFindTestDef, t *testing.T) {
 	if q.Find(5, 3) {
 		t.Error("Found it before union")
