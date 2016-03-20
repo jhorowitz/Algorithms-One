@@ -24,9 +24,7 @@ type WeightedQAWithPComp struct {
 func (w *WeightedQAWithPComp) Root(a int) int {
 	parent := w.ids[a].parent
 	for parent != a {
-		defer func(c int) {
-			w.ids[c].parent = a
-		}(a)
+		w.ids[a].parent = w.ids[w.ids[a].parent].parent
 		a = parent
 	}
 	defer fmt.Println(w.ids)
