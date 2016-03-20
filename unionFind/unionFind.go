@@ -25,7 +25,46 @@ Connected components: Maximal set of objects that are mutually connected
 
  */
 
-func ReadFromStdIn() [][2]int {
-	return nil
+
+/*
+"Eager algorithm" for solving the connectivity program.
+ - Data structure for the algorithm is simply a []int
+
+ P and Q are connected iff they share the same id
+ ___________________
+ 0|1|2|3|4|5|6|7|8|9
+ 0|1|1|8|8|0|0|1|8|8
+
+ In the above example, 0, 5, 6 are connected. 1, 2, 7 are connected. 3, 4, 8, 9 are connected.
+
+ */
+
+func NewQuickFind(size int) *QuickFind {
+	q := &QuickFind{}
+	q.ids = make([]int, size)
+	for i := range q.ids {
+		q.ids[i] = i
+	}
+	return q
+}
+
+type QuickFind struct {
+	ids []int
+}
+
+/*
+ To merge components, change all ids that == ids[j] to ids[i]
+ */
+func (qf *QuickFind) Union (a, b int) {
+	var previousId = qf.ids[b]
+	for i, id := range qf.ids {
+		if id == previousId {
+			qf.ids[i] = qf.ids[a]
+		}
+	}
+}
+
+func (qf *QuickFind) Find (i, j int) bool {
+	return qf.ids[i] == qf.ids[j]
 }
 
