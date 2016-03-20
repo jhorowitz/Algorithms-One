@@ -26,9 +26,9 @@ Connected components: Maximal set of objects that are mutually connected
 */
 
 /*
- Algorithm Complexity
+ Algorithm Complexities
   Algorithm | Initialize | Union | Find |
-  QuickFind |      N     |   N   |  N   |
+  QuickFind |      N     |   N   |  1   |
 */
 
 /*
